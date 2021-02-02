@@ -3,12 +3,12 @@ export class MyProfile {
     lastName!: string;
     mobileNumber!: number;
     dateOfBirth!: string;
-    genderid!: number;
-    educationid!: number;
-    maritalStatusid!: number;
-    employmentTypeid!: number;
+    genderId!: number;
+    educationId!: number;
+    maritalstatusId!: number;
+    employmentTypeId!: number;
     jobTitle!: string;
-    countryid!: number;
+    countryId!: number;
     mobileNumVisibility!: string;
 
     constructor(visibility: string) {

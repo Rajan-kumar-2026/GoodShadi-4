@@ -86,19 +86,19 @@ export class MyprofileComponent {
       alert('Select your year');
       return;
     }
-    else if (this.myprofile.genderid == undefined) {
+    else if (this.myprofile.genderId == undefined) {
       alert('Seelct your gender');
       return;
     }
-    else if (this.myprofile.educationid == undefined) {
+    else if (this.myprofile.educationId == undefined) {
       alert('Select your education');
       return;
     }
-    else if (this.myprofile.maritalStatusid == undefined) {
+    else if (this.myprofile.maritalstatusId == undefined) {
       alert('Select your marital status');
       return;
     }
-    else if (this.myprofile.employmentTypeid == undefined) {
+    else if (this.myprofile.employmentTypeId == undefined) {
       alert('Select your employment');
       return;
     }
@@ -106,7 +106,7 @@ export class MyprofileComponent {
       alert('type your job profile');
       return;
     }
-    else if (this.myprofile.countryid == undefined) {
+    else if (this.myprofile.countryId == undefined) {
       alert('Select your country');
       return;
     }

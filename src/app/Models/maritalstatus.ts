@@ -1,4 +1,4 @@
 export interface IMaritalstatus {
     id: number;
-    name: number;
+    name: string;
 }

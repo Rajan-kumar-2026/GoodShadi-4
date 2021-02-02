@@ -2,11 +2,11 @@
     Name: {{ profile.firstName }} {{ profile.lastName }} <br>
     Mobile Number: {{ profile.mobileNumber }}<br>
     Date OF Birth: {{profile.dateOfBirth}}<br>
-    gender: {{profile.genderid}} <br>
-    Education: {{profile.educationid}} <br>
-    Marital Status: {{profile.maritalStatusid}}<br>
-    EmploymentType: {{profile.employmentTypeid}}<br>
+    Gender: {{getGenderText(profile.genderId)}} <br>
+    Education: {{getEducationText(profile.educationId)}} <br>
+    Marital Status: {{getMaritalStatusText(profile.maritalstatusId)}}<br>
+    EmploymentType: {{getEmploymentText(profile.employmentTypeId)}}<br>
     JobTitle: {{profile.jobTitle}}<br>
-    Country: {{profile.countryid}}<br>
-    MobileVisibility: {{profile.mobileNumVisibility}}
+    Country: {{getCountryText(profile.countryId)}}<br>
+    Keep my mobile number visible: {{ profile.mobileNumVisibility == 'n' ? 'No' : 'Yes' }}
 </div>

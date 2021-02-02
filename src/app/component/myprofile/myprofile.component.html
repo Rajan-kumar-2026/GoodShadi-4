@@ -43,7 +43,7 @@
         <div class="col-4">
             <div class="form-group">
                 <label for="">Gender: <span class="abc">*</span></label>
-                <select name="" id="" class="form-control" [(ngModel)]='myprofile.genderid'>
+                <select name="" id="" class="form-control" [(ngModel)]='myprofile.genderId'>
                     <option value="undefined">Select your gender</option>
                     <option [value]="gen.id" *ngFor='let gen of gender'> {{gen.name}} </option>
                 </select>
@@ -52,7 +52,7 @@
         <div class="col-4">
             <div class="form-group">
                 <label for="">Education: <span class="abc">*</span></label>
-                <select name="" id="" class="form-control" [(ngModel)]='myprofile.educationid'>
+                <select name="" id="" class="form-control" [(ngModel)]='myprofile.educationId'>
                     <option value="undefined">Select your education</option>
                     <option [value]="edu.id" *ngFor='let edu of education'> {{edu.name}} </option>
                 </select>
@@ -63,7 +63,7 @@
         <div class="col-4">
             <div class="form-group">
                 <label for="" class="">Marital Status: <span class="abc">*</span></label>
-                <select name="" id="" class="form-control" [(ngModel)]='myprofile.maritalStatusid'>
+                <select name="" id="" class="form-control" [(ngModel)]='myprofile.maritalstatusId'>
                     <option value="undefined">Select your marital status</option>
                     <option [value]="mat.id" class="" *ngFor='let mat of maritalstatus'> {{mat.name}} </option>
                 </select>
@@ -72,7 +72,7 @@
         <div class="col-4">
             <div class="form-group">
                 <label for="" class="">Employment Type <span class="abc">*</span></label>
-                <select name="" id="" class="form-control" [(ngModel)]='myprofile.employmentTypeid'>
+                <select name="" id="" class="form-control" [(ngModel)]='myprofile.employmentTypeId'>
                     <option value="undefined">Select your employment type</option>
                     <option [value]="emp.id" *ngFor='let emp of employment'> {{emp.name}} </option>
 
@@ -90,7 +90,7 @@
         <div class="col-4">
             <div class="form-group">
                 <label for="" class="">Country: <span class="abc">*</span></label>
-                <select name="" id="" class="form-control" [(ngModel)]='myprofile.countryid'>
+                <select name="" id="" class="form-control" [(ngModel)]='myprofile.countryId'>
                     <option value="undefined">Select your country</option>
                     <option [value]="con.id" *ngFor='let con of country'> {{con.name}} </option>
                 </select>
