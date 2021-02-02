@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4 mt-4">
+            <div class="form-group">
+                <label for="">Login</label>
+                <input type="email" class="form-control" placeholder="Userid"[(ngModel)]='userName'>&nbsp;&nbsp;
+                <input type="password" class="form-control" placeholder="Password" [(ngModel)]='password'>
+            </div>
+            <button (click)='login()'>Signin</button>
+        </div>
+    </div>
+</div>

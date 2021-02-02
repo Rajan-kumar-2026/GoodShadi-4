@@ -1,0 +1,111 @@
+<div class="container">
+    <p class="mt-2">My Profile</p>
+    <h6>Fields marked * are mandatory</h6>
+    <div class="row">
+        <div class="col-4 mt-2">
+            <div class="form-group">
+                <label for="">First Name: <span class="abc">*</span></label>
+                <input type="text" class="form-control" placeholder="Your first name" [(ngModel)]='myprofile.firstName'>
+            </div>
+        </div>
+        <div class="col-4 mt-2">
+            <div class="form-group">
+                <label for="">Last Name: <span class="abc">*</span></label>
+                <input type="text" class="form-control" placeholder="Your last name" [(ngModel)]='myprofile.lastName'>
+            </div>
+        </div>
+        <div class="col-4 mt-2">
+            <div class="form-group">
+                <label for="">Mobile Number: <span class="abc">*</span></label>
+                <input type="text" class="form-control" placeholder="Your mobile number"
+                    [(ngModel)]='myprofile.mobileNumber'>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <div class="labe">Date Of Birth: <span class="abc">*</span></div>
+                <select name="" id="" class="form-control" [(ngModel)]='selectedDay'>
+                    <option value="undefined" class="">SelectDay</option>
+                    <option [value]="day" class="" *ngFor='let day of days'> {{day}} </option>
+                </select>
+                <select name="" id="" class="form-control" [(ngModel)]='selectedMonth'>
+                    <option value="undefined" class="">SelectMonth</option>
+                    <option [value]="month" class="" *ngFor='let month of months'> {{month}} </option>
+                </select>
+                <select name="" id="" class="form-control" [(ngModel)]='selectedYear'>
+                    <option value="undefined" class="">SelectMonth</option>
+                    <option [value]="year" class="" *ngFor='let year of years'> {{year}} </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label for="">Gender: <span class="abc">*</span></label>
+                <select name="" id="" class="form-control" [(ngModel)]='myprofile.genderid'>
+                    <option value="undefined">Select your gender</option>
+                    <option [value]="gen.id" *ngFor='let gen of gender'> {{gen.name}} </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label for="">Education: <span class="abc">*</span></label>
+                <select name="" id="" class="form-control" [(ngModel)]='myprofile.educationid'>
+                    <option value="undefined">Select your education</option>
+                    <option [value]="edu.id" *ngFor='let edu of education'> {{edu.name}} </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label for="" class="">Marital Status: <span class="abc">*</span></label>
+                <select name="" id="" class="form-control" [(ngModel)]='myprofile.maritalStatusid'>
+                    <option value="undefined">Select your marital status</option>
+                    <option [value]="mat.id" class="" *ngFor='let mat of maritalstatus'> {{mat.name}} </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label for="" class="">Employment Type <span class="abc">*</span></label>
+                <select name="" id="" class="form-control" [(ngModel)]='myprofile.employmentTypeid'>
+                    <option value="undefined">Select your employment type</option>
+                    <option [value]="emp.id" *ngFor='let emp of employment'> {{emp.name}} </option>
+
+                </select>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label for="">Job Title: <span class="abc">*</span></label>
+                <input type="text" class="form-control" placeholder="Your job title" [(ngModel)]='myprofile.jobTitle'>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label for="" class="">Country: <span class="abc">*</span></label>
+                <select name="" id="" class="form-control" [(ngModel)]='myprofile.countryid'>
+                    <option value="undefined">Select your country</option>
+                    <option [value]="con.id" *ngFor='let con of country'> {{con.name}} </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label for="" class="">Keep my mobile no. visible to others:<span class="abc">*</span></label>
+                <select name="" id="" class="form-control" [(ngModel)]='myprofile.mobileNumVisibility'>
+                    <option value="undefined"></option>
+                    <option value="y">Yes</option>
+                    <option value="n">No</option>
+                </select>
+            </div>
+            <button value="" (click)='submit()'>Submit</button>
+        </div>
+    </div>
+</div>
