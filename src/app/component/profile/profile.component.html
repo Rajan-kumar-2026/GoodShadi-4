@@ -1,0 +1,14 @@
+
+<div class="container mt-4">
+    <div *ngIf='!!profile'>
+        Name: {{profile.firstName}} {{profile.lastName}} <br>
+        Email: {{profile.email}} <br>
+        Gender: {{ us.getGenderText(profile.genderId) }} <br>
+        Education: {{us.getEducationText(profile.educationId)}} <br>
+        Country: {{us.getCountryText(profile.countryId)}} <br>
+        Employment: {{us.getEmploymentText(profile.employmentId)}} <br>
+        Marital Status: {{us.getMaritalStatusText(profile.maritalstatusId)}} <br>
+        Job Titele: {{profile.jobTitle}} <br>
+        Date Of Birth: {{profile.dateOfBirth}} <br>
+    </div>
+</div>

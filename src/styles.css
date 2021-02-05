@@ -1,2 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.flex-container {
+    /* We first create a flex layout context */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .flex-item {
+    background: tomato;
+    padding: 5px;
+    margin-top: 10px;
+    /* width: 200px;
+    height: 150px;
+    line-height: 150px;
+    color: white;
+    text-align: center; */
+  }

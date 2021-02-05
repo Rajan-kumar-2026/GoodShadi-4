@@ -1,12 +1,13 @@
-<div class="container">
+<div [routerLink] = "['/profile/' + profile.email]" style="cursor: pointer;">
     Name: {{ profile.firstName }} {{ profile.lastName }} <br>
-    Mobile Number: {{ profile.mobileNumber }}<br>
-    Date OF Birth: {{profile.dateOfBirth}}<br>
-    Gender: {{getGenderText(profile.genderId)}} <br>
-    Education: {{getEducationText(profile.educationId)}} <br>
-    Marital Status: {{getMaritalStatusText(profile.maritalstatusId)}}<br>
-    EmploymentType: {{getEmploymentText(profile.employmentTypeId)}}<br>
-    JobTitle: {{profile.jobTitle}}<br>
-    Country: {{getCountryText(profile.countryId)}}<br>
-    Keep my mobile number visible: {{ profile.mobileNumVisibility == 'n' ? 'No' : 'Yes' }}
+    <!-- Mobile Number: {{ profile.mobileNumVisibility == 'y' ? profile.mobileNumber : 'hidden' }}<br>
+        Gender: {{getGenderText(profile.genderId)}} <br>
+        Date OF Birth: {{profile.dateOfBirth}}<br>
+        Education: {{getEducationText(profile.educationId)}} <br> -->
+    Marital Status: {{us.getMaritalStatusText(profile.maritalstatusId)}}<br>
+    <!-- EmploymentType: {{getEmploymentText(profile.employmentTypeId)}}<br> -->
+    <!-- JobTitle: {{profile.jobTitle}}<br> -->
+    Country: {{us.getCountryText(profile.countryId)}}<br>
 </div>
+<!-- Keep my mobile number visible: {{ profile.mobileNumVisibility == 'n' ? 'No' : 'Yes' }} -->
+

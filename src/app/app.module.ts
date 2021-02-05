@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { MiniprofileComponent } from './component/miniprofile/miniprofile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
+import { ProfileComponent } from './component/profile/profile.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { MatInputModule } from '@angular/material/input';
     RegisterComponent,
     HeaderComponent,
     FooterComponent,
-    MiniprofileComponent
+    MiniprofileComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

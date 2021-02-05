@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { ICountry } from 'src/app/Models/country';
-import { IEducation } from 'src/app/Models/education';
-import { IEmployment } from 'src/app/Models/employment';
-import { IGender } from 'src/app/Models/gender';
-import { IMaritalstatus } from 'src/app/Models/maritalstatus';
-import { MyProfile } from 'src/app/Models/myProfile';
-import { ShadiService } from 'src/app/shared/shadi.service';
+import { ICountry } from '../../models/country';
+import { IEducation } from '../../models/education';
+import { IEmployment } from '../../models/employment';
+import { IGender } from '../../models/gender';
+import { IMaritalstatus } from '../../models/maritalstatus';
+import { MyProfile } from '../../models/myProfile';
+import { ShadiService } from '../../shared/shadi.service';
 
 @Component({
   selector: 'app-myprofile',

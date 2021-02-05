@@ -9,10 +9,15 @@ import { FavoriteComponent } from './component/favorite/favorite.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { MyprofileComponent } from './component/myprofile/myprofile.component';
+import { ProfileComponent } from './component/profile/profile.component';
 import { RegisterComponent } from './component/register/register.component';
 import { SearchComponent } from './component/search/search.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
   {
     path: 'register',
     component: RegisterComponent
@@ -22,8 +27,8 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: '',
-    component: HomeComponent
+    path: 'profile/:email',
+    component:  ProfileComponent
   },
   {
     path: 'myprofile',

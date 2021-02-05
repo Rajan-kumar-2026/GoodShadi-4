@@ -2,6 +2,7 @@ export class MyProfile {
     firstName!: string;
     lastName!: string;
     mobileNumber!: number;
+    email!: string;
     dateOfBirth!: string;
     genderId!: number;
     educationId!: number;

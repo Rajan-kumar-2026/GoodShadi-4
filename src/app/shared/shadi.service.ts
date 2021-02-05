@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ICountry } from '../Models/country';
-import { IEducation } from '../Models/education';
-import { IEmployment } from '../Models/employment';
-import { IMaritalstatus as IMaritalStatus } from '../Models/maritalstatus';
-import { IGender } from '../Models/gender';
-import { MyProfile } from '../Models/myProfile';
+import { ICountry } from '../models/country';
+import { IEducation } from '../models/education';
+import { IEmployment } from '../models/employment';
+import { IMaritalstatus as IMaritalStatus } from '../models/maritalstatus';
+import { IGender } from '../models/gender';
+import { MyProfile } from '../models/myProfile';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +33,16 @@ export class ShadiService {
 
   getAllGender(): Observable<IGender[]> {
     return this.hc.get<IGender[]>('http://localhost:44371/api/gender');
+  }
+
+  getByEmail(email: string): Observable<MyProfile> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        Authorization: 'bearer ' + localStorage.getItem('token')
+      })
+    }
+    return this.hc.get<MyProfile>(`http://localhost:44371/api/profile/getByEmail?email=${email}`, httpOptions);
   }
 
   createMyProfile(p: MyProfile): Observable<any> {
