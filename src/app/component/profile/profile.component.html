@@ -10,5 +10,11 @@
         Marital Status: {{us.getMaritalStatusText(profile.maritalstatusId)}} <br>
         Job Titele: {{profile.jobTitle}} <br>
         Date Of Birth: {{profile.dateOfBirth}} <br>
+        
+        <button (click)='makeFavourite()' *ngIf='!isFavourite'>Make Favourite</button>
+        <button (click)='removeFavourite()' *ngIf='isFavourite'>Remove Favourite</button>
+
+        <button (click)='block()' *ngIf='!isBlocked'>Block</button>
+        <button (click)='unblock()' *ngIf='isBlocked'>Unblock</button>
     </div>
 </div>

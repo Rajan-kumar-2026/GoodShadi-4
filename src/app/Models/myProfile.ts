@@ -1,4 +1,5 @@
 export class MyProfile {
+    id!: number;
     firstName!: string;
     lastName!: string;
     mobileNumber!: number;

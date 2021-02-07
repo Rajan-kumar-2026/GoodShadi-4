@@ -36,34 +36,15 @@ export class ShadiService {
   }
 
   getMyProfile(): Observable<MyProfile> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'bearer ' + localStorage.getItem('token')
-      })
-    }
-    return this.hc.get<MyProfile>('http://localhost:44371/api/profile/getmyprofile', httpOptions);
+    return this.hc.get<MyProfile>('http://localhost:44371/api/profile/getmyprofile', this.httpOptions());
   }
 
   getByEmail(email: string): Observable<MyProfile> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-type': 'application/json',
-        Authorization: 'bearer ' + localStorage.getItem('token')
-      })
-    }
-    return this.hc.get<MyProfile>(`http://localhost:44371/api/profile/getByEmail?email=${email}`, httpOptions);
+    return this.hc.get<MyProfile>(`http://localhost:44371/api/profile/getByEmail?email=${email}`, this.httpOptions());
   }
 
   createMyProfile(p: MyProfile): Observable<any> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        Authorization: 'bearer ' + localStorage.getItem('token')
-      })
-    };
-
-    return this.hc.post('http://localhost:44371/api/profile/create', p, httpOptions);
+    return this.hc.post('http://localhost:44371/api/profile/create', p, this.httpOptions());
   }
 
   createRegister(email: string, password: string, confirmPassword: string): Observable<any> {
@@ -71,36 +52,39 @@ export class ShadiService {
   }
 
   search(): Observable<MyProfile[]> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        Authorization: 'bearer ' + localStorage.getItem('token')
-      })
-    };
-
-    return this.hc.get<MyProfile[]>('http://localhost:44371/api/search/profiles', httpOptions);
+    return this.hc.get<MyProfile[]>('http://localhost:44371/api/search/profiles', this.httpOptions());
   }
 
   getAllFavourites(): Observable<MyProfile[]> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        Authorization: 'bearer ' + localStorage.getItem('token')
-      })
-    };
+    return this.hc.get<MyProfile[]>('http://localhost:44371/api/favourite/getall', this.httpOptions());
+  }
 
-    return this.hc.get<MyProfile[]>('http://localhost:44371/api/favourite/getall', httpOptions);
+  isFavourite(id: number): Observable<boolean> {
+    return this.hc.get<boolean>(`http://localhost:44371/api/favourite/isFavourite?id=${id}`, this.httpOptions());
+  }
+
+  makeFavourite(id: number): Observable<number> {
+    return this.hc.post<number>(`http://localhost:44371/api/favourite/make?favUserId=${id}`, {}, this.httpOptions());
+  }
+
+  removeFavourite(id: number): Observable<number> {
+    return this.hc.delete<number>(`http://localhost:44371/api/favourite/remove?favUserId=${id}`, this.httpOptions());
+  }
+
+  isBlocked(id: number): Observable<boolean> {
+    return this.hc.get<boolean>(`http://localhost:44371/api/blocked/isBlocked?id=${id}`, this.httpOptions());
+  }
+
+  block(id: number): Observable<number> {
+    return this.hc.post<number>(`http://localhost:44371/api/blocked/block?userIdToBlock=${id}`, {}, this.httpOptions());
+  }
+
+  unblock(id: number): Observable<number> {
+    return this.hc.delete<number>(`http://localhost:44371/api/blocked/unblock?userIdToUnblock=${id}`, this.httpOptions());
   }
 
   getAllBlocked(): Observable<MyProfile[]> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        Authorization: 'bearer ' + localStorage.getItem('token')
-      })
-    };
-
-    return this.hc.get<MyProfile[]>('http://localhost:44371/api/blocked/getall', httpOptions);
+    return this.hc.get<MyProfile[]>('http://localhost:44371/api/blocked/getall', this.httpOptions());
   }
 
   login(userName: string, password: string): Observable<any> {
@@ -127,5 +111,16 @@ export class ShadiService {
       body += encodeURIComponent(params[key]);
     }
     return body;
+  }
+
+  private httpOptions(): {
+    headers: HttpHeaders;
+  } {
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + localStorage.getItem('token')
+      })
+    };
   }
 }
