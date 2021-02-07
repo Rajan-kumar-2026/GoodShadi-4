@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MyProfile } from 'src/app/models/myProfile';
-import { ShadiService } from 'src/app/shared/shadi.service';
+import { MyProfile } from '../../models/myProfile';
+import { ShadiService } from '../../shared/shadi.service';
 
 @Component({
   selector: 'app-search',

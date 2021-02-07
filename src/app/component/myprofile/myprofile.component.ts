@@ -1,20 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MyProfile } from '../../models/myProfile';
 import { ICountry } from '../../models/country';
 import { IEducation } from '../../models/education';
 import { IEmployment } from '../../models/employment';
 import { IGender } from '../../models/gender';
 import { IMaritalstatus } from '../../models/maritalstatus';
-import { MyProfile } from '../../models/myProfile';
 import { ShadiService } from '../../shared/shadi.service';
 
 @Component({
-  selector: 'app-myprofile',
+  selector: 'app-profile',
   templateUrl: './myprofile.component.html',
   styleUrls: ['./myprofile.component.css']
 })
-export class MyprofileComponent {
-
-  myprofile: MyProfile = new MyProfile('y');
+export class MyprofileComponent implements OnInit {
+  profile: MyProfile = new MyProfile('y');
   country!: ICountry[];
   education!: IEducation[];
   maritalstatus!: IMaritalstatus[];
@@ -27,8 +26,10 @@ export class MyprofileComponent {
   selectedMonth!: string;
   selectedYear!: string;
 
-
-  constructor(private mp: ShadiService) {
+  constructor(private ss: ShadiService) {
+  }
+  
+  ngOnInit() {
     for (let i = 1; i <= 31; i++) {
       this.days.push(i);
     }
@@ -39,38 +40,57 @@ export class MyprofileComponent {
     this.getallEducation();
     this.getAllEmployment();
     this.getAllCountry();
+    this.getprofile();
+  }
+
+  getprofile() {
+    this.ss.getMyProfile().subscribe(p => {
+      if (!!p) {
+        this.profile = p;
+        
+        const dob = p.dateOfBirth; //"1 January 2020"
+        const arrDob = dob.split(" ");
+        this.selectedDay = arrDob[0];
+        this.selectedMonth = arrDob[1];
+        this.selectedYear = arrDob[2];
+      }
+    });
   }
 
   getAllCountry() {
-    this.mp.getAllCountry().subscribe(c => this.country = c);
+    this.ss.getAllCountry().subscribe(c => this.country = c);
   }
 
   getallEducation() {
-    this.mp.getAllEducation().subscribe(e => this.education = e);
+    this.ss.getAllEducation().subscribe(e => this.education = e);
   }
 
   getAllMaritalStatus() {
-    this.mp.getAllMaritalStatus().subscribe(m => this.maritalstatus = m);
+    this.ss.getAllMaritalStatus().subscribe(m => this.maritalstatus = m);
   }
 
   getAllEmployment() {
-    this.mp.getAllEmploymentType().subscribe(emp => this.employment = emp);
+    const employments = localStorage.getItem('employments');
+  
+    this.employment = !!employments ? JSON.parse(employments) : [];
   }
 
   getAllGender() {
-    this.mp.getAllGender().subscribe(g => this.gender = g);
+    const genders = localStorage.getItem('genders');
+  
+    this.gender = !!genders ? JSON.parse(genders) : [];
   }
 
   submit() {
-    if (this.myprofile.firstName == undefined || this.myprofile.firstName == '') {
+    if (this.profile.firstName == undefined || this.profile.firstName == '') {
       alert('Type your first name');
       return;
     }
-    else if (this.myprofile.lastName == undefined || this.selectedYear == '') {
+    else if (this.profile.lastName == undefined || this.selectedYear == '') {
       alert('Type your last name');
       return;
     }
-    else if (this.myprofile.mobileNumber == undefined) {
+    else if (this.profile.mobileNumber == undefined) {
       alert('Type your mobile number');
       return;
     }
@@ -86,39 +106,39 @@ export class MyprofileComponent {
       alert('Select your year');
       return;
     }
-    else if (this.myprofile.genderId == undefined) {
+    else if (this.profile.genderId == undefined) {
       alert('Seelct your gender');
       return;
     }
-    else if (this.myprofile.educationId == undefined) {
+    else if (this.profile.educationId == undefined) {
       alert('Select your education');
       return;
     }
-    else if (this.myprofile.maritalstatusId == undefined) {
+    else if (this.profile.maritalstatusId == undefined) {
       alert('Select your marital status');
       return;
     }
-    else if (this.myprofile.employmentTypeId == undefined) {
+    else if (this.profile.employmentTypeId == undefined) {
       alert('Select your employment');
       return;
     }
-    else if (this.myprofile.jobTitle == undefined) {
+    else if (this.profile.jobTitle == undefined) {
       alert('type your job profile');
       return;
     }
-    else if (this.myprofile.countryId == undefined) {
+    else if (this.profile.countryId == undefined) {
       alert('Select your country');
       return;
     }
-    else if (this.myprofile.mobileNumVisibility == undefined) {
+    else if (this.profile.mobileNumVisibility == undefined) {
       alert('Select your Mobile Visibility');
       return;
     }
-    this.myprofile.dateOfBirth = `${this.selectedDay} ${this.selectedMonth} ${this.selectedYear}`;
+    this.profile.dateOfBirth = `${this.selectedDay} ${this.selectedMonth} ${this.selectedYear}`;
 
-    this.mp.createMyProfile(this.myprofile).subscribe(m => {
+    this.ss.createMyProfile(this.profile).subscribe(m => {
       alert('Successful Save');
-      this.resetScreen();
+      // this.resetScreen();
     },
       m => alert('Error Saving Profile'));
   }
@@ -127,7 +147,7 @@ export class MyprofileComponent {
     this.selectedDay = '';
     this.selectedMonth = '';
     this.selectedYear = '';
-    this.myprofile = new MyProfile('y');
+    this.profile = new MyProfile('y');
 
   }
 }

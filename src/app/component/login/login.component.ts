@@ -26,7 +26,7 @@ export class LoginComponent {
       this.getLookupData();
 
       this.router.navigate(['/']);
-    })
+    }, e => alert(e.error.error_description))
   }
 
   getLookupData() {

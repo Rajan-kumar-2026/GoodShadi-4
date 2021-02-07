@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ShadiService } from '../../shared/shadi.service';
+import { MyProfile } from '../../models/myProfile';
 
 @Component({
   selector: 'app-favorite',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoriteComponent implements OnInit {
 
-  constructor() { }
+  profiles!: MyProfile[];
+
+  constructor(private ss: ShadiService) { }
 
   ngOnInit(): void {
+    this.ss.getAllFavourites().subscribe(profiles => this.profiles = profiles);
   }
-
 }

@@ -35,6 +35,16 @@ export class ShadiService {
     return this.hc.get<IGender[]>('http://localhost:44371/api/gender');
   }
 
+  getMyProfile(): Observable<MyProfile> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + localStorage.getItem('token')
+      })
+    }
+    return this.hc.get<MyProfile>('http://localhost:44371/api/profile/getmyprofile', httpOptions);
+  }
+
   getByEmail(email: string): Observable<MyProfile> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -69,6 +79,28 @@ export class ShadiService {
     };
 
     return this.hc.get<MyProfile[]>('http://localhost:44371/api/search/profiles', httpOptions);
+  }
+
+  getAllFavourites(): Observable<MyProfile[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'bearer ' + localStorage.getItem('token')
+      })
+    };
+
+    return this.hc.get<MyProfile[]>('http://localhost:44371/api/favourite/getall', httpOptions);
+  }
+
+  getAllBlocked(): Observable<MyProfile[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'bearer ' + localStorage.getItem('token')
+      })
+    };
+
+    return this.hc.get<MyProfile[]>('http://localhost:44371/api/blocked/getall', httpOptions);
   }
 
   login(userName: string, password: string): Observable<any> {

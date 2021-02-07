@@ -1,1 +1,5 @@
-<p>favorite works!</p>
+<div class="container flex-container mt-4">
+    <div *ngFor='let profile of profiles' class="flex-item">
+        <app-miniprofile [profile]='profile'></app-miniprofile>
+    </div>
+</div>
