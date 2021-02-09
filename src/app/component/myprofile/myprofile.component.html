@@ -36,54 +36,90 @@
                         <mat-option [value]='day' *ngFor='let day of days'> {{day}} </mat-option>
                     </mat-select>
                 </mat-form-field>
-                
+                <mat-form-field>
+                    <mat-label>Month:<span class="abc">*</span> </mat-label>
+                    <mat-select class="" [(ngModel)]='selectedMonth'>
+                        <mat-option [value]='month' *ngFor='let month of months'> {{month}} </mat-option>
+                    </mat-select>
+                </mat-form-field>
+<!--                 
                 <select name="" id="" class="form-control" [(ngModel)]='selectedMonth'>
                     <option value="undefined" class="">Select Month</option>
                     <option [value]="month" class="" *ngFor='let month of months'> {{month}} </option>
-                </select>
-                <select name="" id="" class="form-control" [(ngModel)]='selectedYear'>
+                </select> -->
+                <mat-form-field>
+                    <mat-label>Select Year:<span class="abc">*</span> </mat-label>
+                    <mat-select class="" [(ngModel)]='selectedYear'>
+                        <mat-option [value]='year' *ngFor='let year of years'> {{year}} </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- <select name="" id="" class="form-control" [(ngModel)]='selectedYear'>
                     <option value="undefined" class="">Select Year</option>
                     <option [value]="year" class="" *ngFor='let year of years'> {{year}} </option>
-                </select>
+                </select> -->
             </div>
         </div>
         <div class="col-4">
             <div class="form-group">
-                <label for="">Gender: <span class="abc">*</span></label>
+                <mat-form-field>
+                    <mat-label>Gender:<span class="abc">*</span> </mat-label>
+                    <mat-select class="" [(ngModel)]='profile.genderId'>
+                        <mat-option [value]='gen.id' *ngFor='let gen of gender'> {{gen.name}} </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- <label for="">Gender: <span class="abc">*</span></label>
                 <select name="" id="" class="form-control" [(ngModel)]='profile.genderId'>
                     <option value="undefined">Select your gender</option>
                     <option [value]="gen.id" *ngFor='let gen of gender'> {{gen.name}} </option>
-                </select>
+                </select> -->
             </div>
         </div>
         <div class="col-4">
             <div class="form-group">
-                <label for="">Education: <span class="abc">*</span></label>
+                <mat-form-field>
+                    <mat-label>Education:<span class="abc">*</span> </mat-label>
+                    <mat-select class="" [(ngModel)]='profile.educationId'>
+                        <mat-option [value]='edu.id' *ngFor='let edu of education'> {{edu.name}} </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- <label for="">Education: <span class="abc">*</span></label>
                 <select name="" id="" class="form-control" [(ngModel)]='profile.educationId'>
                     <option value="undefined">Select your education</option>
                     <option [value]="edu.id" *ngFor='let edu of education'> {{edu.name}} </option>
-                </select>
+                </select> -->
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-4">
             <div class="form-group">
-                <label for="" class="">Marital Status: <span class="abc">*</span></label>
+                <mat-form-field>
+                    <mat-label>MaritalStatus:<span class="abc">*</span> </mat-label>
+                    <mat-select class="" [(ngModel)]='profile.maritalstatusId'>
+                        <mat-option [value]='mat.id' *ngFor='let mat of maritalstatus'> {{mat.name}} </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- <label for="" class="">Marital Status: <span class="abc">*</span></label>
                 <select name="" id="" class="form-control" [(ngModel)]='profile.maritalstatusId'>
                     <option value="undefined">Select your marital status</option>
                     <option [value]="mat.id" class="" *ngFor='let mat of maritalstatus'> {{mat.name}} </option>
-                </select>
+                </select> -->
             </div>
         </div>
         <div class="col-4">
             <div class="form-group">
-                <label for="" class="">Employment Type <span class="abc">*</span></label>
+                <mat-form-field>
+                    <mat-label>Employment Type:<span class="abc">*</span> </mat-label>
+                    <mat-select class="" [(ngModel)]='profile.employmentTypeId'>
+                        <mat-option [value]='emp.id' *ngFor='let emp of employment'> {{emp.name}} </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- <label for="" class="">Employment Type <span class="abc">*</span></label>
                 <select name="" id="" class="form-control" [(ngModel)]='profile.employmentTypeId'>
                     <option value="undefined">Select your employment type</option>
                     <option [value]="emp.id" *ngFor='let emp of employment'> {{emp.name}} </option>
 
-                </select>
+                </select> -->
             </div>
         </div>
         <div class="col-4">
@@ -112,14 +148,21 @@
         </div>
         <div class="col-4">
             <div class="form-group">
-                <label for="" class="">Keep my mobile no. visible to others:<span class="abc">*</span></label>
+                <mat-form-field>
+                    <mat-label>Keep my mobile no. visible to others:<span class="abc">*</span> </mat-label>
+                    <mat-select class="" [(ngModel)]='profile.mobileNumVisibility'>
+                        <mat-option value="y">Yes</mat-option>
+                        <mat-option value="n">No</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- <label for="" class="">Keep my mobile no. visible to others:<span class="abc">*</span></label>
                 <select name="" id="" class="form-control" [(ngModel)]='profile.mobileNumVisibility'>
                     <option value="undefined"></option>
                     <option value="y">Yes</option>
                     <option value="n">No</option>
-                </select>
+                </select> -->
             </div>
-            <button value="" (click)='submit()'>Submit</button>
+            <button value="" (click)='submit()' mat-stroked-button>Submit</button>
         </div>
     </div>
     <!-- <div class="" *ngIf='!!profile'>
@@ -127,13 +170,3 @@
     </div> -->
 </div>
 
-
-<mat-form-field>
-    <mat-label>Registration</mat-label>
-    <mat-select>
-        <mat-option></mat-option>
-        <mat-option></mat-option>
-        <mat-option></mat-option>
-        <mat-option></mat-option>
-    </mat-select>
-</mat-form-field>
