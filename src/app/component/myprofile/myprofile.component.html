@@ -4,23 +4,37 @@
     <div class="row">
         <div class="col-4 mt-2">
             <div class="form-group">
-                <label for="">First Name: <span class="abc">*</span></label>
-                <input type="text" class="form-control" placeholder="Your first name" [(ngModel)]='profile.firstName'>
+                <form class="example-form">
+                    <table class="example-full-width" cellspacing="0"><tr>
+                      <td><mat-form-field class="example-full-width">
+                        <mat-label>First name <span class="abc">*</span></mat-label>
+                        <input matInput [(ngModel)]='profile.firstName'>
+                      </mat-form-field></td>
+                      <td><mat-form-field class="example-full-width">
+                        <mat-label>Last Name <span class="abc">*</span></mat-label>
+                        <input matInput [(ngModel)]='profile.lastName'>
+                      </mat-form-field></td>
+                    </tr></table>
+                </form>
+                <!-- <label for="">First Name: <span class="abc">*</span></label>
+                <input type="text" class="form-control" placeholder="Your first name" [(ngModel)]='profile.firstName'> -->
             </div>
         </div>
         <div class="col-4 mt-2">
             <div class="form-group">
-                <label for="">Last Name: <span class="abc">*</span></label>
-                <input type="text" class="form-control" placeholder="Your last name" [(ngModel)]='profile.lastName'>
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Telephone</mat-label>
+                      <span matPrefix>+1 &nbsp;</span>
+                      <input type="tel" matInput placeholder="Enter your mobileNumber" [(ngModel)]='profile.mobileNumber'>
+                      <!-- <mat-icon matSuffix></mat-icon> -->
+                    </mat-form-field>
+                  </form>   
+                <!-- <label for="">Last Name: <span class="abc">*</span></label>
+                <input type="text" class="form-control" placeholder="Your last name" [(ngModel)]='profile.lastName'> -->
             </div>
         </div>
-        <div class="col-4 mt-2">
-            <div class="form-group">
-                <label for="">Mobile Number: <span class="abc">*</span></label>
-                <input type="text" class="form-control" placeholder="Your mobile number"
-                    [(ngModel)]='profile.mobileNumber'>
-            </div>
-        </div>
+       
     </div>
     <div class="row">
         <div class="col-4">
