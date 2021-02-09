@@ -1,5 +1,103 @@
-<app-header></app-header>
-<div class="body">
-  <router-outlet></router-outlet>
-</div>
-<app-footer></app-footer>
+<mat-sidenav-container class="main">
+  <mat-sidenav #menu mode="push" position="start">
+    <div class="menu">
+      <div *ngIf='isLoggedIn' class="item">
+        <i>{{ cs.loggedInUser$ | async }}</i>
+      </div>
+      <div class="submenu" routerLink='home' (click)='menu.close()'>
+        <div class="item">
+          <span class="material-icons">home</span>
+        </div>
+        <div class="item">
+          Home
+        </div>
+      </div>
+      <div class="submenu" routerLink='myprofile' (click)='menu.close()' *ngIf='isLoggedIn'>
+        <div class="item">
+          <span class="material-icons">person</span>
+        </div>
+        <div class="item">
+          My Profile
+        </div>
+      </div>
+      <div class="submenu" routerLink='chat' *ngIf='isLoggedIn' (click)='menu.close()'>
+        <div class="item">
+          <span class="material-icons">chat</span>
+        </div>
+        <div class="item">
+          Chat
+        </div>
+      </div>
+      <div class="submenu" routerLink='search' *ngIf='isLoggedIn' (click)='menu.close()'>
+        <div class="item">
+          <span class="material-icons">search</span>
+        </div>
+        <div class="item">
+          Search
+        </div>
+      </div>
+      <div class="submenu" routerLink='favorites' *ngIf='isLoggedIn' (click)='menu.close()'>
+        <div class="item">
+          <span class="material-icons">favorite</span>
+        </div>
+        <div class="item">Favorites</div>
+      </div>
+      <div class="submenu" routerLink='blocked' *ngIf='isLoggedIn' (click)='menu.close()'>
+        <div class="item">
+          <span class="material-icons">block</span>
+        </div>
+        <div class="item">
+          Blocked
+        </div>
+      </div>
+      <div class="submenu" routerLink='changepassword' *ngIf='isLoggedIn' (click)='menu.close()'>
+        <div class="item">
+          <span class="material-icons">password</span>
+        </div>
+        <div class="item">
+          Change Password          
+        </div>
+      </div>
+      <div class="submenu" routerLink='contactus' (click)='menu.close()'>
+        <div class="item">
+          <span class="material-icons">mail</span>
+        </div>
+        <div class="item"> 
+          Contact us
+        </div><br>
+      </div>
+      <div class="submenu" routerLink='register' *ngIf='!isLoggedIn' (click)='menu.close()'>
+        <div class="item">
+          <span class="material-icons">how_to_reg</span>
+        </div>
+        <div class="item">Register</div>
+      </div>
+      <div class="submenu" routerLink='login' *ngIf='!isLoggedIn' (click)='menu.close()'>
+        <div class="item">
+          <span class="material-icons">login</span>
+        </div>
+        <div class="item">
+          Login
+        </div>
+      </div>
+      <div class="submenu" *ngIf='isLoggedIn' (click)='menu.close();logOut()' style="cursor: pointer;">
+        <div class="item">
+          <span class="material-icons">logout</span>
+        </div>
+        <div class="item">
+          Logout
+        </div>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div>
+      abc Corp
+    </div>
+    <span class="material-icons" (click)='menu.open()' style="cursor: pointer;">
+      dehaze
+    </span>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -8,19 +8,5 @@ import { CommonService } from 'src/app/shared/common.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isLoggedIn!: boolean;
-  // loggedInUser!: string | null;
-
-  constructor(public cs: CommonService, private router: Router) {
-    this.cs.isLoggedIn$.subscribe(v => this.isLoggedIn = v);
-    // this.cs.loggedInUser$.subscribe(u => this.loggedInUser = u);
-  }
-
-  logOut() {
-    localStorage.clear();
-    this.cs.isLoggedIn$.next(false);
-    this.cs.loggedInUser$.next(null);
-    
-    this.router.navigate(['']);
-  }
+  
 }

@@ -1,0 +1,19 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    height: 10%;
+}
+
+.submenu {
+    display: flex;
+    cursor: pointer;
+    border: 0;
+}
+
+.submenu:hover {
+    background-color: rgb(212, 235, 211);
+  }
+
+.item {
+    padding: 5px;
+}

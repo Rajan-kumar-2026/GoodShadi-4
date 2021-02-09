@@ -20,7 +20,10 @@ import { MiniprofileComponent } from './component/miniprofile/miniprofile.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { ProfileComponent } from './component/profile/profile.component';
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,7 @@ import { ProfileComponent } from './component/profile/profile.component';
     HeaderComponent,
     FooterComponent,
     MiniprofileComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,10 +49,11 @@ import { ProfileComponent } from './component/profile/profile.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatInputModule
-    
-    
-    
+    MatInputModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSnackBarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

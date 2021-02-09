@@ -1,13 +1,5 @@
-<div class="header">
-    <a routerLink='home'>Home</a>
-    <a routerLink='myprofile' *ngIf='isLoggedIn'>My Profile</a>
-    <a routerLink='chat' *ngIf='isLoggedIn'>Chat</a>
-    <a routerLink='search' *ngIf='isLoggedIn'>Search</a>
-    <a routerLink='favorites'*ngIf='isLoggedIn'>Favorites</a>
-    <a routerLink='blocked' *ngIf='isLoggedIn'>Blocked</a>
-    <a routerLink='changepassword' *ngIf='isLoggedIn'>Change Password</a>
-    <a routerLink='contactus'>Contact us</a>
-    <a routerLink='register' *ngIf='!isLoggedIn'>Register</a>
-    <a routerLink='login' *ngIf='!isLoggedIn'>Login</a>
-    <a *ngIf='isLoggedIn' (click)='logOut()' style="cursor: pointer;">Logout ({{ cs.loggedInUser$ | async }})</a>
+
+
+<div class="header1">
+    
 </div>

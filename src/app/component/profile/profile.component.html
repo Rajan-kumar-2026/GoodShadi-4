@@ -11,10 +11,10 @@
         Job Titele: {{profile.jobTitle}} <br>
         Date Of Birth: {{profile.dateOfBirth}} <br>
         
-        <button (click)='makeFavourite()' *ngIf='!isFavourite'>Make Favourite</button>
-        <button (click)='removeFavourite()' *ngIf='isFavourite'>Remove Favourite</button>
+        <button (click)='makeFavourite()' *ngIf='!isFavourite' mat-raised-button color="primary">Make Favourite</button>
+        <button (click)='removeFavourite()' *ngIf='isFavourite' mat-raised-button color="accent">Remove Favourite</button>&nbsp;
 
-        <button (click)='block()' *ngIf='!isBlocked'>Block</button>
-        <button (click)='unblock()' *ngIf='isBlocked'>Unblock</button>
+        <button (click)='block()' *ngIf='!isBlocked' mat-raised-button color="warn">Block</button>
+        <button (click)='unblock()' *ngIf='isBlocked' mat-raised-button color="accent">Unblock</button>
     </div>
 </div>

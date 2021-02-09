@@ -2,4 +2,8 @@
     <div *ngFor='let profile of profiles' class="flex-item">
         <app-miniprofile [profile]='profile'></app-miniprofile>
     </div>
+
+    <div *ngIf='profiles.length == 0'>
+        You do not have any blocked member.
+    </div>
 </div>

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MyProfile } from '../../models/myProfile';
-import { ShadiService } from 'src/app/shared/shadi.service';
+import { ShadiService } from '../../shared/shadi.service';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
 import { forkJoin, of } from 'rxjs';
 import { UtilService } from '../../shared/util.service';
+import { CommonService } from '../../shared/common.service';
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +20,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(private ss: ShadiService,
     private ar: ActivatedRoute,
-    public us: UtilService) {
+    public us: UtilService,
+    private cs: CommonService) {
   }
 
   ngOnInit(): void {
@@ -49,13 +51,21 @@ export class ProfileComponent implements OnInit {
 
   makeFavourite() {
     if (!!this.profile?.id) {
-      this.ss.makeFavourite(this.profile.id).subscribe(n => this.isFavourite = true)
+      this.ss.makeFavourite(this.profile.id).subscribe(n => {
+        this.isFavourite = true;
+        // alert("Favourite made successfully");
+        this.cs.showSnackBar("Favourite made successfully");
+      })
     }
   }
 
   removeFavourite() {
     if (!!this.profile?.id) {
-      this.ss.removeFavourite(this.profile.id).subscribe(n => this.isFavourite = false)
+      this.ss.removeFavourite(this.profile.id).subscribe(n => {
+        this.isFavourite = false;
+        // alert("Favourite removed successfully");
+        this.cs.showSnackBar("Favourite removed successfully");
+      })
     }
   }
 

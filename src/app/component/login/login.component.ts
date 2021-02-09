@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/shared/common.service';
 import { ShadiService } from 'src/app/shared/shadi.service';
@@ -12,11 +13,13 @@ export class LoginComponent {
   userName!: string;
   password!: string;
 
-  constructor(private ss: ShadiService, private cs: CommonService, private router: Router) { }
+  constructor(private ss: ShadiService,
+    private cs: CommonService,
+    private router: Router,
+    private sb: MatSnackBar) { }
 
   login() {
     this.ss.login(this.userName, this.password).subscribe(t => {
-      console.log(JSON.stringify(t));
       localStorage.setItem('token', t.access_token);
       this.cs.isLoggedIn$.next(true);
 
@@ -25,8 +28,10 @@ export class LoginComponent {
       
       this.getLookupData();
 
+      this.cs.showSnackBar("Login successful");
+
       this.router.navigate(['/']);
-    }, e => alert(e.error.error_description))
+    }, e => this.cs.showSnackBar(e.error.error_description));
   }
 
   getLookupData() {
